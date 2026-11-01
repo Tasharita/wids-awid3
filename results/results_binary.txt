@@ -1,0 +1,37 @@
+TRAIN:
+ label_bin
+0    2263
+1     135
+TEST:
+ label_bin
+0    797
+1    128
+Decision Tree: acc=0.9903 precision=0.992 recall=0.938 f1=0.964
+Random Forest: acc=0.9989 precision=1.000 recall=0.992 f1=0.996
+Logistic Regression: acc=0.9946 precision=1.000 recall=0.961 f1=0.980
+Naive Bayes: acc=0.9589 precision=0.771 recall=1.000 f1=0.871
+Isolation Forest: acc=0.9211 precision=0.802 recall=0.570 f1=0.667
+Rule deauth+disassoc>=10 per s: acc=0.9935 precision=1.000 recall=0.953 f1=0.976
+|--- unprot_mgmt <= 3.50
+|   |--- deauth <= 0.50
+|   |   |--- bcast_frac <= 0.00
+|   |   |   |--- class: 0
+|   |   |--- bcast_frac >  0.00
+|   |   |   |--- class: 0
+|   |--- deauth >  0.50
+|   |   |--- class: 1
+|--- unprot_mgmt >  3.50
+|   |--- rssi_std <= 1.00
+|   |   |--- deauth <= 2.00
+|   |   |   |--- class: 0
+|   |   |--- deauth >  2.00
+|   |   |   |--- class: 1
+|   |--- rssi_std >  1.00
+|   |   |--- rssi_mean <= -35.52
+|   |   |   |--- class: 1
+|   |   |--- rssi_mean >  -35.52
+|   |   |   |--- std_len <= 465.14
+|   |   |   |   |--- class: 1
+|   |   |   |--- std_len >  465.14
+|   |   |   |   |--- class: 0
+

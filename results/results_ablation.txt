@@ -1,0 +1,70 @@
+TRAIN:
+ label_bin
+0    2263
+1     135
+TEST:
+ label_bin
+0    797
+1    128
+Decision Tree: acc=0.9762 precision=0.942 recall=0.883 f1=0.911
+Random Forest: acc=0.9881 precision=0.983 recall=0.930 f1=0.956
+Logistic Regression: acc=0.9470 precision=0.856 recall=0.742 f1=0.795
+Naive Bayes: acc=0.8962 precision=0.627 recall=0.617 f1=0.622
+Isolation Forest: acc=0.9135 precision=0.833 recall=0.469 f1=0.600
+Rule deauth+disassoc>=10 per s: acc=0.9935 precision=1.000 recall=0.953 f1=0.976
+|--- rssi_std <= 1.35
+|   |--- rssi_std <= 1.01
+|   |   |--- mean_len <= 86.05
+|   |   |   |--- mean_len <= 85.95
+|   |   |   |   |--- uniq_dst <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- uniq_dst >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- mean_len >  85.95
+|   |   |   |   |--- rssi_mean <= -62.00
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- rssi_mean >  -62.00
+|   |   |   |   |   |--- class: 1
+|   |   |--- mean_len >  86.05
+|   |   |   |--- class: 0
+|   |--- rssi_std >  1.01
+|   |   |--- rssi_mean <= -50.27
+|   |   |   |--- rssi_std <= 1.01
+|   |   |   |   |--- class: 1
+|   |   |   |--- rssi_std >  1.01
+|   |   |   |   |--- class: 0
+|   |   |--- rssi_mean >  -50.27
+|   |   |   |--- mean_len <= 947.67
+|   |   |   |   |--- class: 1
+|   |   |   |--- mean_len >  947.67
+|   |   |   |   |--- class: 0
+|--- rssi_std >  1.35
+|   |--- rssi_mean <= -58.59
+|   |   |--- rssi_std <= 7.77
+|   |   |   |--- class: 0
+|   |   |--- rssi_std >  7.77
+|   |   |   |--- rssi_std <= 11.06
+|   |   |   |   |--- class: 1
+|   |   |   |--- rssi_std >  11.06
+|   |   |   |   |--- class: 1
+|   |--- rssi_mean >  -58.59
+|   |   |--- rssi_mean <= -53.61
+|   |   |   |--- rssi_std <= 4.31
+|   |   |   |   |--- mean_len <= 77.64
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- mean_len >  77.64
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- rssi_std >  4.31
+|   |   |   |   |--- uniq_dst <= 1.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- uniq_dst >  1.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- rssi_mean >  -53.61
+|   |   |   |--- frames <= 5.00
+|   |   |   |   |--- class: 0
+|   |   |   |--- frames >  5.00
+|   |   |   |   |--- rssi_mean <= -53.48
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- rssi_mean >  -53.48
+|   |   |   |   |   |--- class: 1
+

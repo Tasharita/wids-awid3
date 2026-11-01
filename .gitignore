@@ -1,0 +1,6 @@
+data/
+dataset.csv
+test_windows.csv
+*.joblib
+alerts.log
+__pycache__/

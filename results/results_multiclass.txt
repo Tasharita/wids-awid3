@@ -1,0 +1,28 @@
+TRAIN:
+ label
+normal    2263
+deauth      95
+disas       40
+TEST:
+ label
+normal    797
+deauth     76
+disas      52
+Decision Tree: acc=0.9903 precision=0.965 recall=0.942 f1=0.950
+Random Forest: acc=0.9935 precision=0.976 recall=0.962 f1=0.967
+Logistic Regression: acc=0.9946 precision=0.998 recall=0.970 f1=0.983
+Naive Bayes: acc=0.9459 precision=0.796 recall=0.931 f1=0.852
+|--- deauth <= 0.50
+|   |--- disassoc <= 3.00
+|   |   |--- bcast_frac <= 0.00
+|   |   |   |--- class: normal
+|   |   |--- bcast_frac >  0.00
+|   |   |   |--- class: normal
+|   |--- disassoc >  3.00
+|   |   |--- disassoc <= 5.50
+|   |   |   |--- class: disas
+|   |   |--- disassoc >  5.50
+|   |   |   |--- class: disas
+|--- deauth >  0.50
+|   |--- class: deauth
+
